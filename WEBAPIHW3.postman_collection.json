@@ -1,0 +1,678 @@
+{
+	"info": {
+		"name": "WEBAPIHW3",
+		"_postman_id": "cdd7bae9-67e0-cd77-4e62-0cd1c53f23e1",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5453471-f6cf-47d2-bb28-bf57f5e4810d",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response Code 200\"] = responseCode.code === 200;",
+							"tests[\"Server Echo Request Body\"] = jsonData.RequestBody === \"Test Echo Gamma Delta\";",
+							"tests[\"Server Echo Queries\"] = jsonData.RequestQuery.BookTitle === \"CForDummies\";",
+							"tests[\"Server Responds with Correct .env Key\"] = jsonData.EnvrionmentKey === \"hewiH@IH@4h2i4hI@H$i24hI@I$@H\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Test Echo Gamma Delta"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/post?BookTitle=CForDummies",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post"
+					],
+					"query": [
+						{
+							"key": "BookTitle",
+							"value": "CForDummies",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post/NoQueries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6da9838e-dca1-448c-9a82-077718592ca5",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response Code 200\"] = responseCode.code === 200;",
+							"tests[\"Server Echo Request Body\"] = jsonData.RequestBody === \"Test Echo Gamma Delta\";",
+							"tests[\"Correct Acknowledgement of No Queries\"] = jsonData.RequestQuery === \"No Queries Found\";",
+							"tests[\"Server Responds with Correct .env Key\"] = jsonData.EnvrionmentKey === \"hewiH@IH@4h2i4hI@H$i24hI@I$@H\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Test Echo Gamma Delta"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/post",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "70834512-6fd7-4009-a80b-15e76f6dd84d",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response Code 200\"] = responseCode.code === 200;",
+							"tests[\"Server Echo Request Body\"] = jsonData.RequestBody === \"The Bernard Experience\";",
+							"tests[\"Server Echo Queries\"] = jsonData.RequestQuery.BookTitle === \"CForDummies\" && jsonData.RequestQuery.Key === \"7362\";",
+							"tests[\"Server Responds with Correct .env Key\"] = jsonData.EnvrionmentKey === \"hewiH@IH@4h2i4hI@H$i24hI@I$@H\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "The Bernard Experience"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/put?BookTitle=CForDummies&Key=7362",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"put"
+					],
+					"query": [
+						{
+							"key": "BookTitle",
+							"value": "CForDummies",
+							"equals": true
+						},
+						{
+							"key": "Key",
+							"value": "7362",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Put/NoQueries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "617d223e-2649-4604-9a2d-682328c25949",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response Code 200\"] = responseCode.code === 200;",
+							"tests[\"Server Echo Request Body\"] = jsonData.RequestBody === \"The Bernard Experience\";",
+							"tests[\"Correct Acknowledgement of No Queries\"] = jsonData.RequestQuery === \"No Queries Found\";",
+							"tests[\"Server Responds with Correct .env Key\"] = jsonData.EnvrionmentKey === \"hewiH@IH@4h2i4hI@H$i24hI@I$@H\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "The Bernard Experience"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/put",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"put"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0cbe30b8-d095-419c-8393-31bffd1b8fb9",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response Code 200\"] = responseCode.code === 200;",
+							"tests[\"Server Echo Headers\"] = jsonData.RequestHeaders.movietitle  === \"The Fire of 772\";",
+							"tests[\"Server Echo Queries\"] = jsonData.RequestQuery.BookTitle === \"CForDummies\";",
+							"tests[\"Server Responds with Correct .env Key\"] = jsonData.EnvrionmentKey === \"hewiH@IH@4h2i4hI@H$i24hI@I$@H\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "MovieTitle",
+						"value": "The Fire of 772"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/get?BookTitle=CForDummies",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "BookTitle",
+							"value": "CForDummies",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get/NoQueries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9bf4012c-1ef2-4099-98b1-e3baf051e638",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response Code 200\"] = responseCode.code === 200;",
+							"tests[\"Server Echo Headers\"] = jsonData.RequestHeaders.movietitle  === \"The Fire of 772\";",
+							"tests[\"Correct Acknowledgement of No Queries\"] = jsonData.RequestQuery === \"No Queries Found\";",
+							"tests[\"Server Responds with Correct .env Key\"] = jsonData.EnvrionmentKey === \"hewiH@IH@4h2i4hI@H$i24hI@I$@H\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "MovieTitle",
+						"value": "The Fire of 772"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/get",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"get"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete/CorrectAuth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "473a4b3b-03a0-470c-a550-e35a32a677e2",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response Code 200\"] = responseCode.code === 200;",
+							"tests[\"Server Echo Request Body\"] = jsonData.RequestBody === \"Correct Authentication\";",
+							"tests[\"Server Echo Queries\"] = jsonData.RequestQuery.BookTitle === \"CForDummies\";",
+							"tests[\"Server Responds with Correct .env Key\"] = jsonData.EnvrionmentKey === \"hewiH@IH@4h2i4hI@H$i24hI@I$@H\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "HW3User",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "CelticFarmer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Correct Authentication"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/delete?BookTitle=CForDummies",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "BookTitle",
+							"value": "CForDummies",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete/CorrectAuth/NoQueries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac2d9646-70fc-4e24-8617-a2d8b4515325",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response Code 200\"] = responseCode.code === 200;",
+							"tests[\"Server Echo Request Body\"] = jsonData.RequestBody === \"Correct Authentication\";",
+							"tests[\"Correct Acknowledgement of No Queries\"] = jsonData.RequestQuery === \"No Queries Found\";",
+							"tests[\"Server Responds with Correct .env Key\"] = jsonData.EnvrionmentKey === \"hewiH@IH@4h2i4hI@H$i24hI@I$@H\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "HW3User",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "CelticFarmer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Correct Authentication"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/delete",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"delete"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete/FailedAuth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe3ff871-dc2b-49ee-815d-c0f7b6038c94",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Correct Rejection of False Credentials\"] = responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/delete?BookTitle=CForDummies",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "BookTitle",
+							"value": "CForDummies",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BASE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "58110e9d-4059-4e9c-b1c8-0a528659299d",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Correct Rejection of BaseURL Request\"] = responseCode.code === 405;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post/WrongMethod",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1082a717-75a4-4284-96cf-88d6c92a7f1b",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Correct Rejection of Incorrect HTTP Method\"] = responseCode.code === 405;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Test Echo Gamma Delta"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/post?BookTitle=CForDummies",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post"
+					],
+					"query": [
+						{
+							"key": "BookTitle",
+							"value": "CForDummies",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Put/WrongMethod",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1082a717-75a4-4284-96cf-88d6c92a7f1b",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Correct Rejection of Incorrect HTTP Method\"] = responseCode.code === 405;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Test Echo Gamma Delta"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/put?BookTitle=CForDummies",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"put"
+					],
+					"query": [
+						{
+							"key": "BookTitle",
+							"value": "CForDummies",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get/WrongMethod",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1082a717-75a4-4284-96cf-88d6c92a7f1b",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Correct Rejection of Incorrect HTTP Method\"] = responseCode.code === 405;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Test Echo Gamma Delta"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/get?BookTitle=CForDummies",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "BookTitle",
+							"value": "CForDummies",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete/WrongMethod",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1082a717-75a4-4284-96cf-88d6c92a7f1b",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Correct Rejection of Incorrect HTTP Method\"] = responseCode.code === 405;"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "HW3User",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "CelticFarmer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Test Echo Gamma Delta"
+				},
+				"url": {
+					"raw": "https://damp-cove-44329.herokuapp.com/delete?BookTitle=CForDummies",
+					"protocol": "https",
+					"host": [
+						"damp-cove-44329",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "BookTitle",
+							"value": "CForDummies",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
